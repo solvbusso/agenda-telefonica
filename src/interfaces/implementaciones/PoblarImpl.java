@@ -2,6 +2,7 @@ package interfaces.implementaciones;
 
 import interfaces.IPoblarContactos;
 import modelos.Contacto;
+import modelos.enums.TipoNumero;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,12 +15,12 @@ public class PoblarImpl implements IPoblarContactos {
     public Set<Contacto> poblarContactos() {
         Set<Contacto> contactos = new HashSet<>();
 
-        Contacto gaby = new Contacto("Gaby", "Vega", 1234,"Fijo");
-        Contacto mariaJose = new Contacto("Maria Jose", "Vega", 1122,"Celular");
+        Contacto gaby = new Contacto("Gaby", "Vega", 1234, TipoNumero.FIJO);
+        Contacto mariaJose = new Contacto("Maria Jose", "Vega", 1122,TipoNumero.CELULAR);
         Contacto daissy = new Contacto("Daissy", "Quishpe", 2234);
         Contacto daissy2 = new Contacto("Daissy", "Perez", 2234);
-        Contacto sol = new Contacto("Sol", "Vazquez", 6543,"Celular");
-        Contacto sol2 = new Contacto("Sol", "Vazquez", 6543,"Celular");
+        Contacto sol = new Contacto("Sol", "Vazquez", 6543,TipoNumero.FIJO);
+        Contacto sol2 = new Contacto("Sol", "Vazquez", 6543,TipoNumero.FIJO);
 
         contactos.add(gaby);
         contactos.add(mariaJose);
