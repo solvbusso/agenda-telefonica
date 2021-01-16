@@ -9,6 +9,7 @@ import interfaces.implementaciones.EliminarImpl;
 import interfaces.implementaciones.ModificarImpl;
 import interfaces.implementaciones.PoblarImpl;
 import modelos.Contacto;
+import modelos.enumerador.TipoNumero;
 
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +39,8 @@ public class Main {
 
         Contacto contactoConElNumero = buscarContactos.buscarContactoPorNumero(contactos, 1234);
         System.out.println(contactoConElNumero);
+
+        List<Contacto>contactoPorTipoNumero=buscarContactos.buscarPorTipoNumero(contactos, TipoNumero.CASA);
 
     }
 }

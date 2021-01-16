@@ -2,6 +2,7 @@ package interfaces.implementaciones;
 
 import interfaces.IBuscarContactos;
 import modelos.Contacto;
+import modelos.enumerador.TipoNumero;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -44,6 +45,18 @@ public class BuscarImpl implements IBuscarContactos {
             }
         }
         return contactoPorNumero;
+    }
+
+    @Override
+    public List<Contacto> buscarPorTipoNumero(Set<Contacto> contactos, TipoNumero tipoNumero) {
+        List<Contacto> buscartipoDeNumero = new ArrayList<>();
+
+        for (Contacto contactoIterador : contactos) {
+            if (tipoNumero.equals(contactoIterador.getTipoNumero())) {
+                buscartipoDeNumero.add(contactoIterador);
+            }
+        }
+        return buscartipoDeNumero;
     }
 }
 

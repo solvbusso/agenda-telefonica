@@ -1,15 +1,17 @@
 package modelos;
 
+import modelos.enumerador.TipoNumero;
+
 import java.util.Objects;
 
 public class Contacto extends Persona{
     private int numeroTelefonico;
-    private String tipoDeNumero;
+    TipoNumero tipoNumero;
 
-    public Contacto(String nombre, String apellido, int numeroTelefonico, String tipoDeNumero) {
+    public Contacto(String nombre, String apellido, int numeroTelefonico, TipoNumero tipoNumero) {
         super(nombre, apellido);
         this.numeroTelefonico = numeroTelefonico;
-        this.tipoDeNumero = tipoDeNumero;
+        this.tipoNumero = tipoNumero;
     }
 
     public Contacto(String nombre, String apellido, int numeroTelefonico) {
@@ -21,27 +23,19 @@ public class Contacto extends Persona{
         return numeroTelefonico;
     }
 
-    public String getTipoDeNumero() {
-        return tipoDeNumero;
-    }
-
     public void setNumeroTelefonico(int numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
 
-    public void setTipoDeNumero(String tipoDeNumero) {
-        this.tipoDeNumero = tipoDeNumero;
+    public TipoNumero getTipoNumero() {
+        return tipoNumero;
     }
 
-    @Override
-    public String toString() {
-        return "Contacto{" +
-                "nombre ='" + getNombre() + '\'' +
-                ", apellido ='" + getApellido() + '\'' +
-                ", numeroTelefonico =" + numeroTelefonico + '\'' +
-                ", tipoDeNumero ='" + tipoDeNumero + '\'' +
-                '}';
+    public void setTipoNumero(TipoNumero tipoNumero) {
+        this.tipoNumero = tipoNumero;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -49,12 +43,20 @@ public class Contacto extends Persona{
         if (o == null || getClass() != o.getClass()) return false;
         Contacto contacto = (Contacto) o;
         return numeroTelefonico == contacto.numeroTelefonico &&
-                Objects.equals(tipoDeNumero, contacto.tipoDeNumero);
+                Objects.equals(tipoNumero, contacto.tipoNumero);
+    }
+
+    @Override
+    public String toString() {
+        return "Contacto{" +
+                "numeroTelefonico=" + numeroTelefonico +
+                ", tipoNumero=" + tipoNumero +
+                "} " + super.toString();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numeroTelefonico, tipoDeNumero);
+        return Objects.hash(numeroTelefonico, tipoNumero);
     }
 }
 
