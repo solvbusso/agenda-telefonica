@@ -1,15 +1,18 @@
 package modelos;
-
+import modelos.enums.TipoContrato;
 import java.util.Objects;
 
-public class Contacto extends Persona{
+public class Contacto extends Persona {
+    private TipoContrato tipoContrato;
     private int numeroTelefonico;
     private String tipoDeNumero;
 
-    public Contacto(String nombre, String apellido, int numeroTelefonico, String tipoDeNumero) {
+
+    public Contacto(String nombre, String apellido, int numeroTelefonico, String tipoDeNumero, TipoContrato tipoContrato) {
         super(nombre, apellido);
         this.numeroTelefonico = numeroTelefonico;
         this.tipoDeNumero = tipoDeNumero;
+        this.tipoContrato = tipoContrato;
     }
 
     public Contacto(String nombre, String apellido, int numeroTelefonico) {
@@ -33,6 +36,20 @@ public class Contacto extends Persona{
         this.tipoDeNumero = tipoDeNumero;
     }
 
+
+    public TipoContrato getTipoContrato() {
+        return tipoContrato;
+    }
+
+    public void setTipoContrato(TipoContrato tipoContrato) {
+        this.tipoContrato = tipoContrato;
+    }
+
+    public Contacto(String nombre, String apellido, String tipoDeNumero) {
+        super(nombre, apellido);
+        this.tipoDeNumero = tipoDeNumero;
+    }
+
     @Override
     public String toString() {
         return "Contacto{" +
@@ -40,6 +57,7 @@ public class Contacto extends Persona{
                 ", apellido ='" + getApellido() + '\'' +
                 ", numeroTelefonico =" + numeroTelefonico + '\'' +
                 ", tipoDeNumero ='" + tipoDeNumero + '\'' +
+                ", tipoContrato ='" + tipoContrato + '\'' +
                 '}';
     }
 
@@ -50,12 +68,14 @@ public class Contacto extends Persona{
         Contacto contacto = (Contacto) o;
         return numeroTelefonico == contacto.numeroTelefonico &&
                 Objects.equals(tipoDeNumero, contacto.tipoDeNumero);
+        //  Objects.equals(tipoContrato, contacto.tipoContrato);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numeroTelefonico, tipoDeNumero);
+        return Objects.hash(numeroTelefonico, tipoDeNumero, tipoContrato);
     }
+
 }
 
 
